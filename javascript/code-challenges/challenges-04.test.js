@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named addAnimal that takes in array of animals (strings) and some callback function.
+ done -Write a function named addAnimal that takes in array of animals (strings) and some callback function.
 
 This function should first create a new array. Then iterate over the input array and modify each value based on the callback function provided.
 
@@ -22,7 +22,10 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  // Solution code here...
+  let updatedArr = arr.map((orange)=> {
+    return callback(orange);
+  })
+  return updatedArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +37,8 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  'this is me starting code challenge'
+  let sortedThings = arr.sort();
+  return sortedThings;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +50,10 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  // Solution code here...
+  let sortedNums = arr.sort((a,b) => {
+    return a - b;
+  })
+  return sortedNums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +65,10 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
+  let backNums = arr.sort((a,b) => {
+    return b - a;
+  })
+  return backNums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +82,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +99,7 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+return arr.sort((a,b) => {a.price - b.price});
 };
 
 /* ------------------------------------------------------------------------------------------------
