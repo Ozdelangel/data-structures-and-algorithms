@@ -7,11 +7,6 @@ Write a function that finds the maximum value in an array
 using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
-
-var arr = [1,2,3];
-var max = arr.reduce(function(a, b) {
-    return Math.max(a, b);
-}, 0);
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   let maxData = arr.reduce(function(a,b){
@@ -46,11 +41,11 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  for(let property in obj){
-    if(value === property){
-      return value;
-    }
-  }
+// if were going to check if something is true or false we need a boolean. name your booleans like a question
+// when using  a ternary you can use an empty string to tell it to do nothing
+let isThere = false;
+Object.values(obj).forEach(val => val === value ? isThere = true : '');
+return isThere;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +68,9 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  const newArr1 = [];
+  Object.keys(obj).forEach(key => newArr1.push(`${key}: ${obj[key]}`))
+  return newArr1
 };
 
 
@@ -126,10 +123,12 @@ const characters = [
     house: 'Snow',
   },
 ];
-
+//Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.forEach(value => {
+    houses.push(value.house);
+  })
   return houses;
 };
 
@@ -146,8 +145,15 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let kids = 0;
+  arr.forEach(person => {
+    if(person.name === character){
+      Object.keys(person).forEach((key,idx) => {
+        if(key === 'children')kids = Object.values(person)[idx].length;
+      })
+    }
+  })
+  return kids ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
