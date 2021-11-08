@@ -20,8 +20,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  let regex1 = /[1-9]{4}/g
-  return regex1.match(pin);
+  let regex1 = /^(\d{4})$/
+  return regex1.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +33,8 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
+  const regex2 = /^\D{5,10}$/
+  return regex2.test(word);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +46,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  const regex3 = /\D\d/;
+  return regex3.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +67,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+ const regex4 = /^\w+[\w.]\w+@\w*.(com|net|org)$/
+ return regex4.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
