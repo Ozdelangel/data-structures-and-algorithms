@@ -75,6 +75,6 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 - **Run filtered tests** - `pytest -k some_filter_text`
 - **Run in watch mode** - `ptw` or `pytest-watch`
 
-# Table Of Contents
+## Table Of Contents
 - [Code Challenge 1](code_challenges/README.md)
 - [Code Challenge 2](code_challenges/README.md)
