@@ -39,5 +39,8 @@ def test_insert_to_linked_list():
     node1.next = node2
     ll.insert('bananna')
     assert ll.head.value == 'bananna'
+
+def test_includes_linked_list():
+
 def test_import():
     assert LinkedList
