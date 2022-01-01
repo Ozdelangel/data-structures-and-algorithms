@@ -78,3 +78,4 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 [Code Challenge 1](code_challenges/README.md)
 [Code Challenge 2](code_challenges/README.md)
 [Code Challenge 3](code_challenges/README.md)
+[Code Challenge 8](code_challenges/code challenge 8/README.md)
