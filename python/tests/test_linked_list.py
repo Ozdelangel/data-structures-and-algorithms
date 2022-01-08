@@ -41,6 +41,6 @@ def test_insert_to_linked_list():
     assert ll.head.value == 'bananna'
 
 def test_includes_linked_list():
-
+    pass
 def test_import():
     assert LinkedList
