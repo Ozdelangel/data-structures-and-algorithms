@@ -41,6 +41,7 @@ def test_insert_to_linked_list():
     node1.next = node2
     ll.insert('bananna')
     assert ll.head.value == 'bananna'
+
 @pytest.mark.skip('pending')
 def test_includes_linked_list_true():
     ll = LinkedList()
@@ -48,5 +49,6 @@ def test_includes_linked_list_true():
     node_true = True
     assert node_true == True
 @pytest.mark.skip('pending')
+
 def test_import():
     assert LinkedList
