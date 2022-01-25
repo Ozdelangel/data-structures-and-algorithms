@@ -1,19 +1,30 @@
-
 from code_challenges.stack_and_queue.node import Node
+import sys
 
 class Stack:
-    def __init__(self):
+    def __init__(self, top=None):
         self.top = None
     def push(self,value):
         node = Node(value)
-        node.next = self.top
-        self.top = Node
+        if self.top == None:
+            node.next = None
+        else:
+            node.next = self.top
+        self.top = node
     def pop(self):
-        if not self.top:
-            raise Exception
+        try:
+            temp = Node(self.top)
+            self.top = self.top.next
+            temp.next = None
+            return temp.value
+        except AttributeError:
+            return('this stack is empty')
+
     def peek(self):
-        return self.top.value
+      try:
+          return self.top.value
+      except AttributeError:
+          return('this stack is empty')
 
     def is_empty(self):
         return self.top is None
-
