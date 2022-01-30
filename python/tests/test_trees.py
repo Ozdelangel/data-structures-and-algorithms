@@ -61,3 +61,8 @@ def test_in_order_traversal():
     assert bt.in_order() == ['pear', 'apple', 'orange']
 
 # Can successfully return a collection from a postorder traversal
+
+def test_tree_max_empty():
+    tree = BinaryTree()
+    assert tree.find_max() is None
+
