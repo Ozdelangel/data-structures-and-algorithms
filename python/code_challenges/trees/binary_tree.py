@@ -40,8 +40,33 @@ class BinaryTree:
             tree_3.append(root.value)
         traverse_3(self.root)
         return tree_3
+    def find_max(self):
 
-class BinarySearchTree(BinaryTree):
-    pass
+
+        def traverse_4(root):
+            max = root.value
+
+            if root is None:
+                return max
+            left = traverse_4(root.left)
+            right = traverse_4(root.right)
+            if left > right:
+                return left
+            if left < right:
+                return right
+            if  root is None:
+
+                   return
+
+            else:
+                return traverse_4(self.root, max)
+
+
+
+
+
+
+# class BinarySearchTree(BinaryTree):
+#     pass
 
 
