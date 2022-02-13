@@ -66,7 +66,38 @@ class BinaryTree:
 
 
 
-# class BinarySearchTree(BinaryTree):
-#     pass
+class BinarySearchTree(BinaryTree):
+    def add(self, value=None):
+        if self.root is None:
+            self.root = Node(value)
+            return
+        def traverse(root, value):
+            if root.value > value:
+                if root.left is None:
+                    root.left = Node(value)
+                else:
+                    traverse(root.left, value)
+            elif root.value < value:
+                if root.right is None:
+                    root.right = Node(value)
+                else:
+                    traverse(root.right, value)
+        traverse(self.root, value)
+
+    def contains(self,value):
+        if self.root is None:
+            return False
+
+        def traverse(root, value):
+            if root.value == value:
+                return True
+            elif value < root.value:
+                if root.left:
+                    return traverse(root.left, value)
+            elif value > root.value:
+                if root.right:
+                    return traverse(root.right, value)
+            return False
+        return traverse(self.root, value)
 
 
