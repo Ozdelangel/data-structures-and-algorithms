@@ -2,13 +2,13 @@ from code_challenges.trees.node import Node
 
 
 class BinaryTree:
-    def __init__(self, root=None):
+    def __init__(self, root=Nnode):
         self.root = root
     def pre_order(self):
         tree = []
 
         def traverse(root):
-            if root is None:
+            if root is Nnode:
                 return
 
             tree.append(root.value)
@@ -21,7 +21,7 @@ class BinaryTree:
         tree_2 = []
 
         def traverse_2(root):
-            if root is None:
+            if root is Nnode:
                 return
             traverse_2(root.left)
             tree_2.append(root.value)
@@ -33,7 +33,7 @@ class BinaryTree:
         tree_3 = []
 
         def traverse_3(root):
-            if root is None:
+            if root is Nnode:
                 return
             traverse_3(root.left)
             traverse_3(root.right)
@@ -43,23 +43,21 @@ class BinaryTree:
     def find_max(self):
 
 
-        def traverse_4(root):
-            max = root.value
+        def traverse_4(root, max):
 
-            if root is None:
+
+            if root is Nnode:
                 return max
-            left = traverse_4(root.left)
-            right = traverse_4(root.right)
-            if left > right:
-                return left
-            if left < right:
-                return right
-            if  root is None:
+            elif max < root.value:
+                max = root.value
+            max = traverse_4(root.left, max)
+            return traverse_4(root.right, max)
 
-                   return
-
-            else:
-                return traverse_4(self.root, max)
+        if self.root is Nnode:
+            return
+        else:
+            return traverse_4(self.root, self.root.value)
+# I got help from my mentor on this
 
 
 
@@ -67,25 +65,25 @@ class BinaryTree:
 
 
 class BinarySearchTree(BinaryTree):
-    def add(self, value=None):
-        if self.root is None:
+    def add(self, value=Nnode):
+        if self.root is Nnode:
             self.root = Node(value)
             return
         def traverse(root, value):
             if root.value > value:
-                if root.left is None:
+                if root.left is Nnode:
                     root.left = Node(value)
                 else:
                     traverse(root.left, value)
             elif root.value < value:
-                if root.right is None:
+                if root.right is Nnode:
                     root.right = Node(value)
                 else:
                     traverse(root.right, value)
         traverse(self.root, value)
 
     def contains(self,value):
-        if self.root is None:
+        if self.root is Nnode:
             return False
 
         def traverse(root, value):

@@ -3,12 +3,12 @@ from code_challenges.stack_and_queue.node import Node
 import sys
 
 class Queue:
-    def __init__(self,front=None):
+    def __init__(self,front=Nnode):
         self.front = front
-        self.rear = None
+        self.rear = Nnode
     def enqueue(self, value):
         node = Node(value)
-        if self.rear is None:
+        if self.rear is Nnode:
             self.front = node
             self.rear = self.front
         else:
@@ -18,7 +18,7 @@ class Queue:
         try:
             temp = self.front
             self.front = self.front.next
-            temp.next = None
+            temp.next = Nnode
             return temp.value
         except AttributeError:
           return('the queue is empty')
@@ -28,4 +28,4 @@ class Queue:
         except AttributeError:
             return('the queue is empty')
     def is_empty(self):
-        return self.front == None
+        return self.front == Nnode

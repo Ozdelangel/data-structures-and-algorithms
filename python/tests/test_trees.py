@@ -18,7 +18,7 @@ def test_bt_empty():
     bt = BinaryTree()
     assert bt
 
-def test_bt_empty_root_none():
+def test_bt_empty_root_nnode():
     bt = BinaryTree()
     assert bt.root == None
 
@@ -64,5 +64,5 @@ def test_in_order_traversal():
 
 def test_tree_max_empty():
     tree = BinaryTree()
-    assert tree.find_max() is None
+    assert tree.find_max() is Nnode
 

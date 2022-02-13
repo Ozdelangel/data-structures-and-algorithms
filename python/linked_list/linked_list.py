@@ -8,9 +8,9 @@ class LinkedList:
     def __init__(self,head=None):
         self.head = head
         # ll head of 1
-        # (1) -> (2) -> none
+        # (1) -> (2) -> nnode
         # insert 3
-        # (3) -> (1) -> (2) -> None
+        # (3) -> (1) -> (2) -> Nnode
     def insert(self, value):
         node = Node(value) # will create a node of 3
         if self.head is not None:
@@ -25,7 +25,7 @@ class LinkedList:
                 return True
             current = current.next
         return False
-    # had help from this website https://www.educative.io/edpresso/what-is-the-str-method-in-python and learned about the to string method and this one too https://stackoverflow.com/questions/20875150/how-to-fill-an-empty-string-which-has-already-been-created-in-python
+    # had help from this website https://www.educative.io/edpresso/what-is-the-str-method-in-python and learned about the to string method and this node too https://stackoverflow.com/questions/20875150/how-to-fill-an-empty-string-which-has-already-been-created-in-python
     def __str__(self):
         current = self.head
         new_string = ''
@@ -37,13 +37,13 @@ class LinkedList:
 
 def merge_sorted(list1, list2):
   # if both lists are empty then merged list is also empty
-  # if one of the lists is empty then other is the merged list
-  if list1 == None:
+  # if node of the lists is empty then other is the merged list
+  if list1 == Nnode:
     return list2
-  elif list2 == None:
+  elif list2 == Nnode:
     return list1
 
-  merged_head = None;
+  merged_head = Nnode;
   if list1.data <= list2.data:
     merged_head = list1
     list1 = list1.next
@@ -53,8 +53,8 @@ def merge_sorted(list1, list2):
 
   merged_tail = merged_head
 
-  while list1 != None and list2 != None:
-    temp = None
+  while list1 != Nnode and list2 != Nnode:
+    temp = Nnode
     if list1.data <= list2.data:
       temp = list1
       list1 = list1.next
@@ -65,9 +65,9 @@ def merge_sorted(list1, list2):
     merged_tail.next = temp
     merged_tail = temp
 
-  if list1 != None:
+  if list1 != Nnode:
     merged_tail.next = list1
-  elif list2 != None:
+  elif list2 != Nnode:
     merged_tail.next = list2
 
   return merged_head
