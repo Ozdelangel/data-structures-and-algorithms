@@ -2,23 +2,23 @@ from linked_list.linked_list import LinkedList, Node
 import pytest
 @pytest.mark.skip('pending')
 def test_node_instance():
-    node = Node(1, None)
-    assert node.next == None
+    node = Node(1, Nnode)
+    assert node.next == Nnode
     assert node.value == 1
 @pytest.mark.skip('pending')
 def test_node_instance_fail():
-    node = Node(1, None)
+    node = Node(1, Nnode)
     assert node.next != node
     assert node.value != 2
 @pytest.mark.skip('pending')
 def test_linked_list():
-    node = Node(1, None)
+    node = Node(1, Nnode)
     ll = LinkedList(node)
     assert ll.head == node
 @pytest.mark.skip('pending')
 def linked_list_empty():
     ll = LinkedList()
-    assert ll.head == None
+    assert ll.head == Nnode
 @pytest.mark.skip('pending')
 def test_linked_list_insert_to_empty():
     #  ll.head = apple
@@ -32,8 +32,8 @@ def test_insert_to_linked_list():
     # node2
     # ll.head = apple
     # apple.next = pear
-    # pear.next = none
-    # apple -> pear -> none
+    # pear.next = nnode
+    # apple -> pear -> nnode
     ll = LinkedList()
     node1 = Node('apple')
     ll.head == node1
