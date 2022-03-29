@@ -1,26 +1,22 @@
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value,key, next=None, ):
         self.value = value
         self.next = next
+        self.key = key
 
 
 class LinkedList:
     def __init__(self,head=None):
-        self.head = head
-        # ll head of 1
-        # (1) -> (2) -> nnode
-        # insert 3
-        # (3) -> (1) -> (2) -> Nnode
+        self.head = None
+        self.next = next
+
     def insert(self, value):
-        node = Node(value) # will create a node of 3
-        if self.head is not None:
-           node.next = self.head
-        # we say 3's next is the current head which is 1
-        # we have to tell the link list that we have a new head
-        self.head = node
+        self.head = Node(value,self.head)
+
+
     def includes(self, value):
         current = self.head
-        while current is not None:
+        while current != None:
             if current.value == value:
                 return True
             current = current.next
@@ -29,45 +25,10 @@ class LinkedList:
     def __str__(self):
         current = self.head
         new_string = ''
-        while current is not None:
+        while current != None:
             new_string = new_string + (f'{current.value}')
         print(new_string)
 
 
 
-def merge_sorted(list1, list2):
-  # if both lists are empty then merged list is also empty
-  # if node of the lists is empty then other is the merged list
-  if list1 == Nnode:
-    return list2
-  elif list2 == Nnode:
-    return list1
 
-  merged_head = Nnode;
-  if list1.data <= list2.data:
-    merged_head = list1
-    list1 = list1.next
-  else:
-    merged_head = list2
-    list2 = list2.next
-
-  merged_tail = merged_head
-
-  while list1 != Nnode and list2 != Nnode:
-    temp = Nnode
-    if list1.data <= list2.data:
-      temp = list1
-      list1 = list1.next
-    else:
-      temp = list2
-      list2 = list2.next
-
-    merged_tail.next = temp
-    merged_tail = temp
-
-  if list1 != Nnode:
-    merged_tail.next = list1
-  elif list2 != Nnode:
-    merged_tail.next = list2
-
-  return merged_head
