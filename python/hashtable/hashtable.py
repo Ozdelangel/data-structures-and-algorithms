@@ -1,5 +1,5 @@
 from operator import index
-from linked_list.linked_list import LinkedList, Node
+from linked_list.linked_list import Node
 
 
 
@@ -12,23 +12,22 @@ class Hashtable:
 
         # Initializer
 
-    def add(self, key, value):
-
-        self.size += 1
+    def set(self, key, value):
         index = self.hash(key)
+        node_a = Node(key,value)
         node = self.bucket[index]
-
         if node is None:
-            self.bucket[index] = Node(key,value)
+            self.bucket[index] = node_a
             return
 
-
-        prev = node
+        previous = node
         while node is not None:
-            prev = node
+            previous = node
             node = node.next
+        previous.next = Node(key,value)
 
-        prev.next = Node(key,value)
+
+
 
 
         # Add
@@ -42,59 +41,54 @@ class Hashtable:
 
         node = self.bucket[index]
 
-        while node is not None and node.key != key:
+        while node.next is not None:
               node = node.next
         if node is None:
             return None
         else:
-            return node.value
+            return None
 
-        # get
-        # Arguments: key
-        # Returns: Value associated with that key in the table
+
 
     def contains(self, key):
         index = self.hash(key)
-        for elem in self.bucket[index]:
-            if elem[0] == key:
+        node = self.bucket[index]
+        if node == None:
+            return False
+        while node is not None:
+            if key == node.key:
+                node = node.next
                 return True
-
-        return False
+            else:
+                node = node.next
+                return False
 
 
     def hash(self, key):
 
-        'Cat'
-
-        'aCt'
         sum = 0
 
         for ch in key:
-            # convert to ascii Cat
-            # if first char, multiply by 11
-            # if third char multiuply by 7
-             sum += ord(ch)
-             # C - 67
-             # a - 97
-             # t - 116
 
-             # sum 280
+             sum += ord(ch)
+
         primed = sum * 97
-        # 27160
+
         index = primed % self.size
 
-        # 27160 - primed
-        # 536
+
 
         return index
 
 
-        # hash
-        # Arguments: key
-        # Returns: Index in the collection for that key
+
 
     def keys(self, key):
-        return self.keys
+       keys = []
+       for i in self.bucket:
+           if i is not None:
+               keys.append(i.key)
+       return keys
 
         # keys
         # Returns: Collection of keys

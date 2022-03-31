@@ -2,11 +2,11 @@ from code_challenges.stack_and_queue.node import Node
 import sys
 
 class Stack:
-    def __init__(self, top=Nnode):
-        self.top = Nnode
+    def __init__(self, top=None):
+        self.top = None
     def push(self,value):
         node = Node(value)
-        if self.top == Nnode:
+        if self.top == None:
             node.next = Nnode
         else:
             node.next = self.top
@@ -15,7 +15,7 @@ class Stack:
         try:
             temp = Node(self.top)
             self.top = self.top.next
-            temp.next = Nnode
+            temp.next = None
             return temp.value
         except AttributeError:
             return('this stack is empty')
@@ -27,4 +27,4 @@ class Stack:
           return('this stack is empty')
 
     def is_empty(self):
-        return self.top is Nnode
+        return self.top is None
