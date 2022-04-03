@@ -1,4 +1,4 @@
-
+from code_challenges.stack_and_queue.queue import Queue
 
 
 class Graph:
@@ -22,6 +22,19 @@ class Graph:
 
     def size(self):
         return len(self.adjacency_list)
+
+    def breadth_first(self,vertex):
+        node = []
+        breadth = Queue()
+        visited = {}
+        breadth.enqueue(vertex)
+        visited.add(vertex)
+        while breadth is not None:
+            if vertex is not visited:
+                visited.add(vertex)
+                breadth.enqueue(vertex)
+            return node
+
 
 class Vertex:
     def __init__(self, value):
