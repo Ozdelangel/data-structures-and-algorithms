@@ -3,11 +3,11 @@ import sys
 
 class Stack:
     def __init__(self, top=None):
-        self.top = None
+        self.top = top
     def push(self,value):
         node = Node(value)
         if self.top == None:
-            node.next = Nnode
+            node.next = None
         else:
             node.next = self.top
         self.top = node
