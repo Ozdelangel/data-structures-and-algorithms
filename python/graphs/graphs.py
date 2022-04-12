@@ -1,4 +1,5 @@
 from code_challenges.stack_and_queue.queue import Queue
+from code_challenges.stack_and_queue.stack import Stack
 
 
 class Graph:
@@ -34,6 +35,21 @@ class Graph:
                 visited.add(vertex)
                 breadth.enqueue(vertex)
             return node
+    def depth_first(self, vertex):
+        pass
+        stack = Stack()
+        visited = set()
+        stack.push(vertex)
+        while (len(stack)):
+            stack.pop()
+        if (not visited[vertex]):
+            stack.push(vertex)
+        for node in self.adjacency_list[vertex]:
+            if (not visited[node]):
+                stack.push(node)
+
+
+
 
 
 class Vertex:
